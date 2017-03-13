@@ -122,7 +122,17 @@ let output = `
 document.getElementById("output").innerHTML = output;
 ```
 
+* We can also get System memory:
 
+```javascript
+<h3 class="page-header">System Memory</h3>
+  <ul class="list-group">
+    <li class="list-group-item">Total: ${process.getSystemMemoryInfo().total}</li>
+    <li class="list-group-item">Free: ${process.getSystemMemoryInfo().free}</li>
+    <li class="list-group-item">Swap Total: ${process.getSystemMemoryInfo().swapTotal}</li>
+    <li class="list-group-item">Swap Free: ${process.getSystemMemoryInfo().swapFree}</li>
+  </ul>
+```
 
 
 
