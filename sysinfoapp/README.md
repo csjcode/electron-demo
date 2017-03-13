@@ -2,6 +2,7 @@
 
 also see: https://electron.atom.io/community/#boilerplates
 
+and: https://www.youtube.com/watch?v=mr9Mtm_TRpw
 
 * `npm init`
 
@@ -88,6 +89,38 @@ app.on('window-all-closed',()=>{
 
 * Create the file renderer.js
 
+
+### Add process info
+
+In index.html:
+
+```html
+<script>
+  console.log(process);
+</script>
+```
+
+Now update fully for output:
+
+```javascript
+let output = `
+  <h3 class="page-header">Software Versions</h3>
+    <ul class="list-group">
+      <li class="list-group-item">Node: ${process.versions.node}</li>
+      <li class="list-group-item">Chrome: ${process.versions.chrome}</li>
+      <li class="list-group-item">Electron: ${process.versions.electron}</li>
+    </ul>
+
+  <h3 class="page-header">System Specifications</h3>
+    <ul class="list-group">
+      <li class="list-group-item">System Architecture: ${process.arch}</li>
+      <li class="list-group-item">Processor: ${process.env.PROCESSOR_IDENTIFIER}</li>
+      <li class="list-group-item">Printer: ${process.env.PRINTER}</li>
+    </ul>
+`;
+
+document.getElementById("output").innerHTML = output;
+```
 
 
 

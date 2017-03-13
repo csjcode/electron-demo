@@ -19,13 +19,45 @@
   </head>
   <body>
 
+    <h1>Sysinfo App</h1>
+
+    <div class="container">
+
+      <div id="output"></div>
+
+    </div>
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-    <script>
-      require('./renderer.js');
-    </script>
+
   </body>
+
+  <script>
+    console.log(process);
+    let output = `
+      <h3 class="page-header">Software Versions</h3>
+        <ul class="list-group">
+          <li class="list-group-item">Node: ${process.versions.node}</li>
+          <li class="list-group-item">Chrome: ${process.versions.chrome}</li>
+          <li class="list-group-item">Electron: ${process.versions.electron}</li>
+        </ul>
+
+      <h3 class="page-header">System Specifications</h3>
+        <ul class="list-group">
+          <li class="list-group-item">System Architecture: ${process.arch}</li>
+          <li class="list-group-item">Processor: ${process.env.PROCESSOR_IDENTIFIER}</li>
+          <li class="list-group-item">Printer: ${process.env.PRINTER}</li>
+        </ul>
+    `;
+
+    document.getElementById("output").innerHTML = output;
+  </script>
+  <script>
+    require('./renderer.js');
+  </script>
+
+
 </html>
